@@ -8,7 +8,7 @@ export interface ApiConfig {
 }
 
 const DEFAULT_CONFIG: ApiConfig = {
-  apiKey: process.env.API_KEY || '',
+  apiKey: process.env.API_KEY || 'AIzaSyAII55H9OgOFjqrwwgVgkjN9JRWoM-bVKo',
   model: 'gemini-3-flash-preview',
   baseUrl: 'https://generativelanguage.googleapis.com'
 };
