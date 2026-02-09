@@ -1,0 +1,7 @@
+{
+  "name": "Copy of EduRealm AIapii",
+  "description": "一个游戏化、AI驱动的中小学全学科剧本杀教育平台。学习不是背诵，是沉浸与推理，我们将课堂变成一场冒险剧场。",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
