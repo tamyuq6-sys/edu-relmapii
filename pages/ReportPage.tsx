@@ -218,7 +218,7 @@ const ReportPage = ({ onRestart, script, transcript, quizScore, totalQuestions, 
                     <div className="lg:col-span-8 space-y-6">
                         <div className="bg-white rounded-[2.5rem] p-8 shadow-sm border-2 border-stone-100 relative overflow-hidden group hover:border-amber-200 transition-colors">
                             <img 
-                                src="https://www.imgur.la/images/2025/12/23/kou-_20251222204439_656_105.png" 
+                                 src="https://www.imgur.la/images/2025/12/23/kou-_20251222204439_656_105.png" 
                                 className="absolute bottom-0 right-0 w-44 h-44 object-contain z-0 transition-transform group-hover:scale-105 pointer-events-none" 
                                 alt="学识认证伙伴" 
                                 referrerPolicy="no-referrer"
