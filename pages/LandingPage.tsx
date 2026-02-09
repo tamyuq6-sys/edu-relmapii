@@ -36,6 +36,7 @@ const LandingPage = ({ onStart, onSimulateLogin }: LandingPageProps) => {
                 src="https://www.imgur.la/images/2025/12/23/kou-78c16aa6b8bf268e.png" 
                 alt="EduRealm IP" 
                 className="w-full h-full object-contain drop-shadow-sm" 
+                referrerPolicy="no-referrer"
               />
            </div>
            <span className="text-3xl font-extrabold text-stone-700 tracking-tight hidden md:block">EduRealm</span>
