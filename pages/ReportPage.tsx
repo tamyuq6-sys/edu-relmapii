@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { LayoutGrid, Calendar, Rocket, Settings, LogOut, Award, RefreshCcw, AlertTriangle, Lightbulb, GraduationCap, Target, Brain, Network, Loader2 } from 'lucide-react';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
@@ -220,6 +221,7 @@ const ReportPage = ({ onRestart, script, transcript, quizScore, totalQuestions, 
                                 src="https://www.imgur.la/images/2025/12/23/kou-_20251222204439_656_105.png" 
                                 className="absolute bottom-0 right-0 w-44 h-44 object-contain z-0 transition-transform group-hover:scale-105 pointer-events-none" 
                                 alt="学识认证伙伴" 
+                                referrerPolicy="no-referrer"
                             />
                             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -mr-8 -mt-8 z-[-1] opacity-40"></div>
                             
