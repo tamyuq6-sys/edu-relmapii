@@ -34,7 +34,6 @@ const IntroStage: React.FC<IntroStageProps> = ({ script, currentSlide, onNext, o
     }
   }, [currentSlide, localStage]);
 
-  // Start the journey
   if (localStage === 'SPLASH') {
     return (
       <div 
@@ -64,7 +63,6 @@ const IntroStage: React.FC<IntroStageProps> = ({ script, currentSlide, onNext, o
            </div>
         </div>
 
-        {/* Floating dust/particles effect */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-ping"></div>
           <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-amber-200 rounded-full animate-ping [animation-delay:1s]"></div>
@@ -75,16 +73,13 @@ const IntroStage: React.FC<IntroStageProps> = ({ script, currentSlide, onNext, o
 
   return (
     <div className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-black ${t.fontFamily} overflow-hidden`}>
-      {/* Dynamic Background Blur */}
       <div className="absolute inset-0 z-0 opacity-40 blur-3xl scale-110">
         <ImageWithFallback src={slide.image} className="w-full h-full object-cover" />
       </div>
 
-      {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-6xl px-6 flex flex-col items-center">
         
         {slide.video ? (
-          /* Cinematic Video Frame */
           <div className="w-full aspect-video bg-stone-900 rounded-[2rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)] border-4 border-white/10 relative group animate-fade-in-up">
             <video 
               ref={videoRef}
@@ -93,13 +88,12 @@ const IntroStage: React.FC<IntroStageProps> = ({ script, currentSlide, onNext, o
               autoPlay 
               muted
               playsInline
+              referrerPolicy="no-referrer"
               onEnded={handleEnded}
             />
-            {/* Subtle Overlay Scanlines for "Screen" feel */}
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,transparent_40%,rgba(0,0,0,0.4)_100%)]"></div>
           </div>
         ) : (
-          /* Narrative Importer Page (User requested 图文导入) */
           <div className="w-full flex flex-col md:flex-row gap-12 items-center animate-fade-in-up">
              <div className="w-full md:w-1/2 aspect-square md:aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white/20">
                 <ImageWithFallback src={slide.image} className="w-full h-full object-cover" />
@@ -125,7 +119,6 @@ const IntroStage: React.FC<IntroStageProps> = ({ script, currentSlide, onNext, o
         )}
       </div>
 
-      {/* Control UI */}
       <div className="absolute bottom-8 right-8 z-20">
         <button 
           onClick={onFinish} 
@@ -136,7 +129,6 @@ const IntroStage: React.FC<IntroStageProps> = ({ script, currentSlide, onNext, o
         </button>
       </div>
       
-      {/* Progress Indicator */}
       <div className="absolute top-12 left-1/2 -translate-x-1/2 flex gap-3 z-10 opacity-40">
         {script.introSlides.map((_, i) => (
           <div 
