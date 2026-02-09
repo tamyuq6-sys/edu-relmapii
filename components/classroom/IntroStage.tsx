@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { FastForward, Play, Sparkles } from 'lucide-react';
 import { Script, ThemeConfig } from '../../types';
@@ -88,7 +87,7 @@ const IntroStage: React.FC<IntroStageProps> = ({ script, currentSlide, onNext, o
               autoPlay 
               muted
               playsInline
-              referrerPolicy="no-referrer"
+              // Fix: Removed unsupported referrerPolicy attribute from video element to resolve type error
               onEnded={handleEnded}
             />
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,transparent_40%,rgba(0,0,0,0.4)_100%)]"></div>
