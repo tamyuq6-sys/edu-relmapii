@@ -49,6 +49,8 @@ export interface Task {
   // Fix: Added missing properties used in AI-generated scripts
   funPoint?: string;
   knowledgePoint?: string;
+  // Fix: Added explanation property to Task interface to resolve errors in StepReview components
+  explanation?: string;
 }
 
 export interface ThemeConfig {
