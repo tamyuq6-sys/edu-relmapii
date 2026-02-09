@@ -35,7 +35,7 @@ const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 const callWithRetry = async <T>(
   fn: (ai: any) => Promise<T>,
   retries = 3,
-  baseDelay = 3000
+  baseDelay = 10000 // 增加基础延迟，给予 429 错误更多的恢复时间
 ): Promise<T> => {
   let lastError: any;
   const config = getApiConfig();
@@ -88,7 +88,7 @@ export const generateDMResponse = async (
   } catch (error: any) {
     console.error("Gemini DM Error:", error);
     if (error.message?.includes("API KEY MISSING")) return error.message;
-    return "吱吱... 稍微有点走神，咱们刚才聊到哪了？（配置可能有误，请检查 API 设置！）";
+    return "吱吱... 额度好像用完啦，请稍微等一分钟或者在侧边设置里换个模型再试。吱！";
   }
 };
 
