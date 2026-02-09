@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { BookOpen, Target, Star, Clock, Users, ArrowRight, CheckCircle2, Sparkles, UserCircle } from 'lucide-react';
 import ImageWithFallback from '../components/ImageWithFallback';
@@ -75,7 +76,12 @@ const SelectionPage = ({ scripts, onSelectScript, completedScriptIds, onStartCus
           <div className="flex items-center gap-10">
             <div className="flex items-center gap-3 cursor-pointer">
               <div className="w-10 h-10">
-                <img src="https://www.imgur.la/images/2025/12/23/kou-78c16aa6b8bf268e.png" alt="Logo" className="w-full h-full object-contain" />
+                <img 
+                  src="https://www.imgur.la/images/2025/12/23/kou-78c16aa6b8bf268e.png" 
+                  alt="Logo" 
+                  className="w-full h-full object-contain" 
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <span className="text-2xl font-black text-stone-800 tracking-tight">EduRealm</span>
             </div>
@@ -99,7 +105,15 @@ const SelectionPage = ({ scripts, onSelectScript, completedScriptIds, onStartCus
                 <p className="text-[10px] font-bold text-stone-400">Lv.{userProfile?.level || 1}</p>
               </div>
               <div className="w-10 h-10 rounded-full border-2 border-amber-100 overflow-hidden shadow-sm group-hover:border-amber-400 transition-colors bg-stone-50 flex items-center justify-center">
-                {userProfile?.avatar_url ? <img src={userProfile.avatar_url} className="w-full h-full object-cover" /> : <UserCircle size={24} className="text-stone-300" />}
+                {userProfile?.avatar_url ? (
+                  <img 
+                    src={userProfile.avatar_url} 
+                    className="w-full h-full object-cover" 
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <UserCircle size={24} className="text-stone-300" />
+                )}
               </div>
             </div>
           </div>
@@ -171,7 +185,7 @@ const SelectionPage = ({ scripts, onSelectScript, completedScriptIds, onStartCus
                                   <div className="bg-stone-900/60 text-white text-[10px] px-3 py-1.5 rounded-full font-black backdrop-blur-md uppercase tracking-widest self-start">
                                     {script.curriculum?.unit}
                                   </div>
-                                  <div className="bg-amber-500/90 text-amber-950 text-[10px] px-3 py-1.5 rounded-full font-black backdrop-blur-md uppercase tracking-widest self-start shadow-sm border border-amber-400/50">
+                                  <div className="bg-amber-50/90 text-amber-950 text-[10px] px-3 py-1.5 rounded-full font-black backdrop-blur-md uppercase tracking-widest self-start shadow-sm border border-amber-400/50">
                                     {script.curriculum?.subject} · {script.curriculum?.grade}
                                   </div>
                                 </div>
