@@ -15,6 +15,7 @@ const ApiSettings: React.FC = () => {
   const models = [
     { id: 'gemini-3-flash-preview', name: 'Gemini 3 Flash (推荐/极速)' },
     { id: 'gemini-3-pro-preview', name: 'Gemini 3 Pro (深度逻辑)' },
+    { id: 'gemini-1.5-flash', name: 'Gemini 1.5 Flash (高限额)' },
     { id: 'gemini-2.5-flash-lite-latest', name: 'Gemini 2.5 Flash Lite' },
     { id: 'gemini-2.5-pro-preview-09-2025', name: 'Gemini 2.5 Pro' }
   ];
@@ -48,7 +49,17 @@ const ApiSettings: React.FC = () => {
       }
     } catch (err: any) {
       console.error(err);
-      setErrorMessage(err.message || '连接失败，请检查 Key 或网络');
+      let msg = err.message || '';
+      
+      // 优化 429 错误提示
+      if (msg.includes('429') || msg.includes('quota') || msg.includes('limit')) {
+        setErrorMessage('API 额度已耗尽或请求太频繁。请稍等一分钟再试，或切换到 1.5 系列模型。');
+      } else if (msg.includes('API_KEY_INVALID')) {
+        setErrorMessage('API Key 无效，请检查是否输入正确。');
+      } else {
+        setErrorMessage('连接失败：' + (msg.length > 50 ? msg.substring(0, 50) + '...' : msg));
+      }
+      
       setTestStatus('error');
     }
   };
@@ -139,7 +150,7 @@ const ApiSettings: React.FC = () => {
                   }`}>
                     {testStatus === 'testing' ? <Loader2 size={18} className="animate-spin" /> :
                      testStatus === 'success' ? <CheckCircle2 size={18} /> : <AlertCircle size={18} />}
-                    <span className="text-sm font-black">
+                    <span className="text-sm font-black leading-tight">
                       {testStatus === 'testing' ? '正在连接时空隧道...' :
                        testStatus === 'success' ? '连接成功！球球已就绪。' : errorMessage}
                     </span>
